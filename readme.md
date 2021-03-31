@@ -2,6 +2,10 @@
 
 An interactive notebook for JavaScript
 
+# Usage
+
+# More about the app
+
 ## Technologies
 
 The app is mainly put together with React and TypeScript. The following tools serve one or two specific purpose.
