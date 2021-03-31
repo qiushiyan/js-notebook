@@ -23,4 +23,6 @@ To allow users to import any npm module without haivng to download it locally, f
 
 ### Code execution inside the browser
 
-User-provided code may be malicious, result in errors, or mutate the dom.
+There would be some serious problems if we execute user-provided code directly inside the app, since they might result in errors or mutate the dom and evenutally crash the app. There also might be malicious code provided by other user trying to reach personal data like cookies.
+
+To solve this, we run JavaScript in a child `iframe`, so that all the code will be executed in the context of a child html page instead, and direct communication between the iframe and the other parts of the app can be blocked.
