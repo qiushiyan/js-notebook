@@ -2,6 +2,10 @@
 
 An interactive notebook for JavaScript
 
+**TODOS**
+
+- reset dom in iframe when user clicks reset
+
 # Usage
 
 # More about the app
