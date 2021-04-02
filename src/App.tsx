@@ -1,5 +1,4 @@
 import React from "react";
-import "bulmaswatch/solar/bulmaswatch.min.css";
 import { CodeCell } from "./components/CodeCell";
 const App: React.FC = () => {
   return (

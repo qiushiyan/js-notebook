@@ -1,6 +1,7 @@
 .wrapper {
   position: relative;
   height: 100%;
+  width: calc(100% - 10px);
 }
 
 .wrapper .buttons {
@@ -9,7 +10,7 @@
   height: 100%;
   color: red;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 5px;
   z-index: 20;
   opacity: 0;
@@ -23,8 +24,9 @@
 .buttons button {
   display: block;
   margin-bottom: 10px;
+  width: 7rem;
 }
 
-.buttons button + button {
+.buttons .format-run {
   margin-top: auto;
 }

@@ -6,6 +6,10 @@ An interactive notebook for JavaScript
 
 - reset dom in iframe when user clicks reset
 
+- set a loading state to
+  - set loading ui
+  - prevent repeated execution when ctrl + shift multiple times
+
 # Usage
 
 # More about the app

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import manaco from "monaco-editor";
 import Editor, { OnMount } from "@monaco-editor/react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
@@ -7,9 +8,14 @@ import classes from "./CodeEditor.module.css";
 interface CodeEditorProps {
   initialValue: string;
   setInput: (input: string) => void;
+  handleSubmit: () => void;
 }
 
-const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, setInput }) => {
+const CodeEditor: React.FC<CodeEditorProps> = ({
+  initialValue,
+  setInput,
+  handleSubmit,
+}) => {
   const editorRef = useRef<any>();
 
   const onMount: OnMount = (monacoEditor, monaco) => {
@@ -37,23 +43,31 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, setInput }) => {
     <div className={classes.wrapper}>
       <div className={classes.buttons}>
         <button
-          className="button button-format is-primary is-medium"
-          onClick={onFormatClick}
-        >
-          Format
-        </button>
-        <button
-          className="button button-format is-primary is-medium"
+          className="button button-format is-primary is-medium clear-button"
           onClick={onClearClick}
         >
           Clear
         </button>
+        <div className={classes["format-run"]}>
+          <button
+            className="button button-format is-primary is-medium format-button"
+            onClick={onFormatClick}
+          >
+            Format
+          </button>
+          <button
+            className="button button-format is-primary is-medium"
+            onClick={handleSubmit}
+          >
+            Run
+          </button>
+        </div>
       </div>
       <Editor
         onChange={(e) => setInput(e as string)}
         onMount={onMount}
         value={initialValue}
-        height="500px"
+        height="100%"
         language="javascript"
         theme="vs-dark"
         options={{
