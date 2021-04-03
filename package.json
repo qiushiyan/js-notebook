@@ -9,6 +9,7 @@
   "dependencies": {
     "@monaco-editor/react": "^4.1.0",
     "@reduxjs/toolkit": "^1.5.1",
+    "@uiw/react-markdown-editor": "^3.1.2",
     "axios": "^0.21.1",
     "bulmaswatch": "^0.8.1",
     "localforage": "^1.9.0",

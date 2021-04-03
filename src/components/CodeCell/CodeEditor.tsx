@@ -7,7 +7,7 @@ import classes from "./CodeEditor.module.css";
 
 interface CodeEditorProps {
   initialValue: string;
-  setInput: (input: string) => void;
+  setInput: (input: string | undefined) => void;
   handleSubmit: () => void;
 }
 
@@ -64,7 +64,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         </div>
       </div>
       <Editor
-        onChange={(e) => setInput(e as string)}
+        onChange={(e) => setInput(e)}
         onMount={onMount}
         value={initialValue}
         height="100%"

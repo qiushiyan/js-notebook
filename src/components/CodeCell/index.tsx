@@ -8,9 +8,14 @@ interface KeysPressed {
   [index: string]: boolean;
 }
 
+export interface Output {
+  code: string;
+  error: string;
+}
+
 export const CodeCell: React.FC = () => {
-  const [input, setInput] = useState<string>("");
-  const [code, setCode] = useState<string>("");
+  const [input, setInput] = useState<string | undefined>("");
+  const [output, setOutput] = useState<Output>({ code: "", error: "" });
   const [prevInput, setPrevInput] = useState<undefined | string>(undefined);
 
   let keysPressed: KeysPressed = {};
@@ -18,8 +23,8 @@ export const CodeCell: React.FC = () => {
   const handleSubmit = async () => {
     if (input && input !== prevInput) {
       setPrevInput(input);
-      const bundledCode = await esBundle(input);
-      setCode(bundledCode);
+      const bundledResult = await esBundle(input);
+      setOutput(bundledResult);
     } else {
       console.log("empty or same as before ");
     }
@@ -58,7 +63,7 @@ export const CodeCell: React.FC = () => {
             handleSubmit={handleSubmit}
           />
         </Resizable>
-        <Preview code={code} />
+        <Preview output={output} />
       </div>
     </Resizable>
   );

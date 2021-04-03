@@ -4,7 +4,12 @@ import { fetchPlugin } from "./plugins/fetch-plugin";
 
 let hasService = false;
 
-const esBundle = async (input: string): Promise<string> => {
+interface BundledResult {
+  code: string;
+  error: string;
+}
+
+const esBundle = async (input: string): Promise<BundledResult> => {
   if (!hasService) {
     await esbuild.initialize({
       worker: true,
@@ -12,16 +17,26 @@ const esBundle = async (input: string): Promise<string> => {
     });
     hasService = true;
   }
-  const result = await esbuild.build({
-    entryPoints: ["index.js"],
-    bundle: true,
-    write: false,
-    plugins: [unpkgPathPlugin(), fetchPlugin(input)],
-    define: {
-      global: "window",
-    },
-  });
-  return result.outputFiles[0].text;
+  try {
+    const result = await esbuild.build({
+      entryPoints: ["index.js"],
+      bundle: true,
+      write: false,
+      plugins: [unpkgPathPlugin(), fetchPlugin(input)],
+      define: {
+        global: "window",
+      },
+    });
+    return {
+      code: result.outputFiles[0].text,
+      error: "",
+    };
+  } catch (error) {
+    return {
+      code: "",
+      error: error.message,
+    };
+  }
 };
 
 export default esBundle;
