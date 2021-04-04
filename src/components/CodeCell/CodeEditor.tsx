@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import manaco from "monaco-editor";
+
 import Editor, { OnMount } from "@monaco-editor/react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";

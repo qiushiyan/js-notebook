@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { ResizableBox, ResizableBoxProps } from "react-resizable";
-import "./Resizable.css";
 
 interface ResizableProps {
   direction: "horizontal" | "vertical";
@@ -27,8 +26,8 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
         setInnerHeight(window.innerHeight);
         setInnerWidth(window.innerWidth);
         // need to update width if window innerWidth is too small
-        if (window.innerWidth * 0.9 < width) {
-          setWidth(window.innerWidth * 0.9);
+        if (window.innerWidth * 0.75 < width) {
+          setWidth(window.innerWidth * 0.75);
         }
       }, 100);
     };
@@ -44,10 +43,10 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
       maxConstraints: [innerWidth * 0.9, Infinity],
       minConstraints: [innerWidth * 0.1, Infinity],
       height: Infinity,
-      width: width * 0.9,
+      width: width * 0.75,
       resizeHandles: ["e"],
       onResizeStop: (_, data) => {
-        setWidth(data.size.width);
+        setWidth(data.size.width * 0.75);
       },
     },
     vertical: {

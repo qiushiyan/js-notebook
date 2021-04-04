@@ -1,12 +1,10 @@
 import React from "react";
-import { CodeCell } from "./components/CodeCell";
+import CellsList from "./components/CellsList/CellsList";
+
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h2 className="title is-2">welcome to js-notebook</h2>
-      <div>
-        <CodeCell />
-      </div>
+      <CellsList />
     </div>
   );
 };

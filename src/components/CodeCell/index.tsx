@@ -13,7 +13,7 @@ export interface Output {
   error: string;
 }
 
-export const CodeCell: React.FC = () => {
+const CodeCell: React.FC = () => {
   const [input, setInput] = useState<string | undefined>("");
   const [output, setOutput] = useState<Output>({ code: "", error: "" });
   const [prevInput, setPrevInput] = useState<undefined | string>(undefined);
@@ -49,22 +49,25 @@ export const CodeCell: React.FC = () => {
   }, [input]);
 
   return (
-    <Resizable direction="vertical">
-      <div
-        className="code-cell"
-        style={{ height: "100%", display: "flex", flexDirection: "row" }}
-        onKeyDown={handleKeyDown}
-        onKeyUp={handleKeyUp}
-      >
-        <Resizable direction="horizontal">
-          <CodeEditor
-            initialValue=""
-            setInput={setInput}
-            handleSubmit={handleSubmit}
-          />
-        </Resizable>
-        <Preview output={output} />
-      </div>
-    </Resizable>
+    <div className="code-cell">
+      <Resizable direction="vertical">
+        <div
+          style={{ height: "100%", display: "flex", flexDirection: "row" }}
+          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
+        >
+          <Resizable direction="horizontal">
+            <CodeEditor
+              initialValue=""
+              setInput={setInput}
+              handleSubmit={handleSubmit}
+            />
+          </Resizable>
+          <Preview output={output} />
+        </div>
+      </Resizable>
+    </div>
   );
 };
+
+export default CodeCell;

@@ -5,7 +5,6 @@ import path from "path";
 export default defineConfig({
   plugins: [reactRefresh()],
   define: {
-    'process.env': {},
     resolve: {
       alias: [
         {
