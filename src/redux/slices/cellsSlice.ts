@@ -23,7 +23,10 @@ const initialState: CellsState = {
     time2: {
       id: "time2",
       type: "code",
-      content: "this is a code cell",
+      content: `
+        const root = document.body.querySelector("#root")
+        root.innerHTML = "welcome to js-notebook"
+      `,
     },
     time: {
       id: "time",

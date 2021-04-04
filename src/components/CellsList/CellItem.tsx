@@ -10,8 +10,8 @@ interface CellItemProps {
 const CellItem: React.FC<CellItemProps> = ({ cell }) => {
   return (
     <div>
-      {cell.type === "code" && <CodeCell />}
-      {cell.type === "text" && <TextCell />}
+      {cell.type === "code" && <CodeCell cell={cell} />}
+      {cell.type === "text" && <TextCell cell={cell} />}
     </div>
   );
 };

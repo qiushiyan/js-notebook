@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import MDEditor from "@uiw/react-md-editor";
+import { Cell } from "../../redux";
+import { useActions } from "../../hooks";
 
-const TextEditor: React.FC = () => {
+interface TextEditorProps {
+  cell: Cell;
+}
+
+const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
+  const { updateCell } = useActions();
+
   const [editMode, setEditMode] = useState<boolean>(false);
-  const [text, setText] = useState<string>("# hello");
   const mdEditor = useRef<any>();
 
   useEffect(() => {
@@ -26,9 +33,14 @@ const TextEditor: React.FC = () => {
   return (
     <div ref={mdEditor} className="text-editor card">
       {!editMode && (
-        <MDEditor.Markdown className="card-content" source={text} />
+        <MDEditor.Markdown className="card-content" source={cell.content} />
       )}
-      {editMode && <MDEditor value={text} onChange={(e) => setText(e || "")} />}
+      {editMode && (
+        <MDEditor
+          value={cell.content}
+          onChange={(e) => updateCell({ id: cell.id, content: e || "" })}
+        />
+      )}
     </div>
   );
 };

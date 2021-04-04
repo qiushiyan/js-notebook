@@ -1,6 +1,6 @@
 import React from "react";
 import CellItem from "./CellItem";
-import { useSelector, useDispatch } from "../../hooks";
+import { useSelector } from "../../hooks";
 
 const CellsList: React.FC = () => {
   const { data, order } = useSelector((state) => state.cells);

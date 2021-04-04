@@ -1,19 +1,19 @@
 import React, { useRef } from "react";
-
 import Editor, { OnMount } from "@monaco-editor/react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
 import classes from "./CodeEditor.module.css";
+import { Cell } from "../../redux";
 
 interface CodeEditorProps {
   initialValue: string;
-  setInput: (input: string | undefined) => void;
+  onChange: (value: string) => void;
   handleSubmit: () => void;
 }
 
 const CodeEditor: React.FC<CodeEditorProps> = ({
   initialValue,
-  setInput,
+  onChange,
   handleSubmit,
 }) => {
   const editorRef = useRef<any>();
@@ -35,7 +35,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   };
 
   const onClearClick = () => {
-    setInput("");
+    onChange("");
     editorRef.current.setValue("");
   };
 
@@ -64,7 +64,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         </div>
       </div>
       <Editor
-        onChange={(e) => setInput(e)}
+        onChange={(e) => onChange(e || "")}
         onMount={onMount}
         value={initialValue}
         height="100%"

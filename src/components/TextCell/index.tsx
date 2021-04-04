@@ -1,10 +1,15 @@
 import React from "react";
+import { Cell } from "../../redux";
 import TextEditor from "./TextEditor";
 
-const TextCell: React.FC = () => {
+interface TextCellProps {
+  cell: Cell;
+}
+
+const TextCell: React.FC<TextCellProps> = ({ cell }) => {
   return (
     <div className="text-cell">
-      <TextEditor />
+      <TextEditor cell={cell} />
     </div>
   );
 };

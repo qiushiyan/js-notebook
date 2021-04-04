@@ -3,6 +3,8 @@ import CodeEditor from "./CodeEditor";
 import Preview from "./Preview";
 import esBundle from "../../bundler";
 import Resizable from "../Resizable/Resizable";
+import { Cell } from "../../redux";
+import { useActions } from "../../hooks";
 
 interface KeysPressed {
   [index: string]: boolean;
@@ -13,17 +15,21 @@ export interface Output {
   error: string;
 }
 
-const CodeCell: React.FC = () => {
-  const [input, setInput] = useState<string | undefined>("");
+interface CodeCellProps {
+  cell: Cell;
+}
+
+const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const [output, setOutput] = useState<Output>({ code: "", error: "" });
-  const [prevInput, setPrevInput] = useState<undefined | string>(undefined);
+  const [prevContent, setPrevContent] = useState<undefined | string>(undefined);
+  const { updateCell } = useActions();
 
   let keysPressed: KeysPressed = {};
 
   const handleSubmit = async () => {
-    if (input && input !== prevInput) {
-      setPrevInput(input);
-      const bundledResult = await esBundle(input);
+    if (cell.content && cell.content !== prevContent) {
+      setPrevContent(cell.content);
+      const bundledResult = await esBundle(cell.content);
       setOutput(bundledResult);
     } else {
       console.log("empty or same as before ");
@@ -46,7 +52,7 @@ const CodeCell: React.FC = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [input]);
+  }, [cell.content]);
 
   return (
     <div className="code-cell">
@@ -58,8 +64,8 @@ const CodeCell: React.FC = () => {
         >
           <Resizable direction="horizontal">
             <CodeEditor
-              initialValue=""
-              setInput={setInput}
+              initialValue={cell.content}
+              onChange={(value) => updateCell({ id: cell.id, content: value })}
               handleSubmit={handleSubmit}
             />
           </Resizable>
