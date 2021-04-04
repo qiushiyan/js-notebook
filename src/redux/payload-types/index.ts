@@ -2,8 +2,6 @@ import { CellTypes, CellLanguages } from "../cell";
 
 type MoveDirection = "up" | "down";
 
-type InsertDirection = "before" | "after";
-
 export interface MoveCell {
   id: string;
   direction: MoveDirection;
@@ -14,9 +12,8 @@ export interface DeleteCell {
 }
 
 export interface InsertCell {
-  id: string;
+  id: string | null;
   type: CellTypes;
-  direction: InsertDirection;
 }
 
 export interface UpdateCell {

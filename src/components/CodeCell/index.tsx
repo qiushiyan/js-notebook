@@ -2,7 +2,7 @@ import React, { useState, useEffect, KeyboardEvent } from "react";
 import CodeEditor from "./CodeEditor";
 import Preview from "./Preview";
 import esBundle from "../../bundler";
-import Resizable from "../Resizable/Resizable";
+import Resizable from "../Resizable";
 import { Cell } from "../../redux";
 import { useActions } from "../../hooks";
 

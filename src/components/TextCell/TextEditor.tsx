@@ -9,7 +9,6 @@ interface TextEditorProps {
 
 const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
   const { updateCell } = useActions();
-
   const [editMode, setEditMode] = useState<boolean>(false);
   const mdEditor = useRef<any>();
 

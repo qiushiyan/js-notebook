@@ -43,20 +43,20 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
     <div className={classes.wrapper}>
       <div className={classes.buttons}>
         <button
-          className="button button-format is-primary is-medium clear-button"
+          className="button button-format is-primary is-small clear-button"
           onClick={onClearClick}
         >
           Clear
         </button>
         <div className={classes["format-run"]}>
           <button
-            className="button button-format is-primary is-medium format-button"
+            className="button button-format is-primary is-small format-button"
             onClick={onFormatClick}
           >
             Format
           </button>
           <button
-            className="button button-format is-primary is-medium"
+            className="button button-format is-primary is-small"
             onClick={handleSubmit}
           >
             Run

@@ -47,10 +47,9 @@ const cellsSlice = createSlice({
       const index = state.order.findIndex((i) => i === id);
 
       const targetIndex = direction === "up" ? index - 1 : index + 1;
-
       // invalid moving direction
-      if (targetIndex < 0 || targetIndex > state.order.length) {
-        return;
+      if (targetIndex < 0 || targetIndex > state.order.length - 1) {
+        return state;
       }
 
       state.order[index] = state.order[targetIndex];
@@ -62,7 +61,7 @@ const cellsSlice = createSlice({
       delete state.data[id];
     },
     insertCell: (state, action: PayloadAction<InsertCell>) => {
-      const { id, type, direction } = action.payload;
+      const { id, type } = action.payload;
       const cell: Cell = {
         id: generateId(),
         content: "",
@@ -70,11 +69,7 @@ const cellsSlice = createSlice({
       };
       state.data[cell.id] = cell;
       const index = state.order.findIndex((i) => i === id);
-      if (direction === "after") {
-        state.order.splice(index, 0, cell.id);
-      } else {
-        state.order.splice(index - 1, 0, cell.id);
-      }
+      state.order.splice(index + 1, 0, cell.id);
     },
     updateCell: (state, action: PayloadAction<UpdateCell>) => {
       const { id, content } = action.payload;

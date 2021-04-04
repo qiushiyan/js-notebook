@@ -14,7 +14,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   const [innerHeight, setInnerHeight] = useState<number>(window.innerHeight);
   const [innerWidth, setInnerWidth] = useState<number>(window.innerWidth);
   // prevent width jump when resizing the window
-  const [width, setWidth] = useState<number>(window.innerWidth);
+  const [width, setWidth] = useState<number>(window.innerWidth * 0.75);
 
   useEffect(() => {
     let timer: number | undefined;
@@ -35,7 +35,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
     return () => {
       window.removeEventListener("resize", listener);
     };
-  }, []);
+  }, [width]);
 
   let resizableConfig: ResizableConfig = {
     horizontal: {
@@ -46,7 +46,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
       width: width * 0.75,
       resizeHandles: ["e"],
       onResizeStop: (_, data) => {
-        setWidth(data.size.width * 0.75);
+        setWidth(data.size.width);
       },
     },
     vertical: {
@@ -54,7 +54,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
       maxConstraints: [Infinity, innerHeight * 0.8],
       minConstraints: [Infinity, 25],
       width: Infinity,
-      height: 600,
+      height: 450,
       resizeHandles: ["s"],
     },
   };

@@ -1,12 +1,48 @@
+/* general styling */
+button {
+  outline: none;
+}
+
+/*  */
 .container {
   width: clamp(75vw, 1000px, 90vw);
   margin: 0 auto;
 }
 
-.code-cell,
-.text-cell {
-  margin-bottom: 20px;
+.cells-list-item {
+  margin-bottom: 60px;
 }
+
+/* format action bar*/
+.text-cell {
+  position: relative;
+}
+
+.action-bar-wrapper {
+  height: 3.6vh;
+  width: 100%;
+  background-color: #37414b;
+  position: relative;
+}
+
+.action-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.25;
+  transition: opacity 0.3s;
+}
+
+.action-bar:hover {
+  opacity: 1;
+}
+
+.action-bar button {
+  background-color: #df691a;
+  color: #f5f5f5;
+}
+
+/* format markdown editor */
 
 .w-md-editor .title {
   line-height: unset;
