@@ -10,12 +10,21 @@ const CellsList: React.FC = () => {
     return (
       <div className="cells-list-item" key={cell.id}>
         <CellItem cell={cell} />
-        <AddCell nextCellId={cell.id} />
+        <AddCell prevCellId={cell.id} />
       </div>
     );
   });
 
-  return <div className="cells-list">{cells}</div>;
+  return (
+    <div className="cells-list">
+      {order.length === 0 && (
+        <div className="visible">
+          <AddCell prevCellId={null} />
+        </div>
+      )}
+      {cells}
+    </div>
+  );
 };
 
 export default CellsList;

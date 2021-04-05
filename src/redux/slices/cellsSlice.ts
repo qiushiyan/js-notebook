@@ -36,8 +36,6 @@ const initialState: CellsState = {
   },
 };
 
-const fetchCells = createAsyncThunk("cells/fetchCells", async () => {});
-
 const cellsSlice = createSlice({
   name: "cells",
   initialState,
@@ -68,8 +66,12 @@ const cellsSlice = createSlice({
         type,
       };
       state.data[cell.id] = cell;
-      const index = state.order.findIndex((i) => i === id);
-      state.order.splice(index + 1, 0, cell.id);
+      if (id) {
+        const index = state.order.findIndex((i) => i === id);
+        state.order.splice(index + 1, 0, cell.id);
+      } else {
+        state.order.unshift(cell.id);
+      }
     },
     updateCell: (state, action: PayloadAction<UpdateCell>) => {
       const { id, content } = action.payload;

@@ -30,4 +30,4 @@ const CellItem: React.FC<CellItemProps> = ({ cell }) => {
     </div>
   );
 };
-export default CellItem;
+export default React.memo(CellItem);

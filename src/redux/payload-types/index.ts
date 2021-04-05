@@ -20,3 +20,12 @@ export interface UpdateCell {
   id: string;
   content: string;
 }
+
+export interface BundlerStart {
+  id: string;
+}
+
+export interface BundlerComplete {
+  id: string;
+  output: { code: string; error: string };
+}

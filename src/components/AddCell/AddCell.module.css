@@ -1,7 +1,7 @@
 .add-cell {
-  margin-top: 20px;
+  margin-top: 30px;
   position: relative;
-  opacity: 0;
+  opacity: 0.2;
   transition: opacity 0.3s;
 }
 

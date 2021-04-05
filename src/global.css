@@ -13,6 +13,11 @@ button {
   margin-bottom: 60px;
 }
 
+/* make first AddCell compoentn visible */
+.visible > * {
+  opacity: 1 !important;
+}
+
 /* format action bar*/
 .text-cell {
   position: relative;
