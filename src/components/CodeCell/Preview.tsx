@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
+import { useSelector } from "../../hooks";
 import "./Preview.css";
-import { Output } from "./index";
 
 interface PreviewProps {
-  output: Output;
+  id: string;
 }
 
 const html = `
@@ -18,25 +18,29 @@ const html = `
         const handleError = (error) => {
           const root = document.querySelector('#root');
           root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + error + '</div>';
-          console.error(error);
+          // console.error(error);
         }
 
         window.addEventListener('error', (event) => {
+          // handle asynchronous run-time error
           handleError(event.error)
         })
 
 
         window.addEventListener("message", (event) => {
             const {code, error} = event.data
-            if (code) {
-              try {
-                eval(code)
-                console.log("evaled")
-              } catch(error) {
+            if (code || error) {
+              if (code) {
+                try {
+                  eval(code)
+                } catch(error) {
+                  // handle run-time aerror
+                  handleError(error)
+                }
+              } else if (error) {
+                // bundle-time error
                 handleError(error)
               }
-            } else if (event.data.error) {
-              handleError()
             }
           }, false)
 
@@ -47,14 +51,33 @@ const html = `
 </html>
 `;
 
-const Preview: React.FC<PreviewProps> = ({ output }) => {
+const Preview: React.FC<PreviewProps> = ({ id }) => {
   const iframe = useRef<any>();
+  console.log("rerendering");
+  const { code, error, loading } = useSelector(
+    (state) => state.bundler[id]
+  ) || {
+    code: "",
+    error: "",
+    loading: false,
+  };
 
   useEffect(() => {
-    iframe.current.contentWindow.postMessage(output, "*");
-  }, [output]);
+    iframe.current.srcdoc = html;
+    setTimeout(
+      () => iframe.current.contentWindow.postMessage({ code, error }, "*"),
+      50
+    );
+  }, [code, error]);
   return (
     <div className="preview-wrapper">
+      {loading && (
+        <div className="progress-wrapper">
+          <progress className="progress is-small is-primary" max="">
+            Loading
+          </progress>
+        </div>
+      )}
       <iframe
         title="preview"
         ref={iframe}
@@ -65,4 +88,4 @@ const Preview: React.FC<PreviewProps> = ({ output }) => {
   );
 };
 
-export default Preview;
+export default React.memo(Preview);

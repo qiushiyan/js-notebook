@@ -1,18 +1,12 @@
 import React, { useState, useEffect, KeyboardEvent } from "react";
 import CodeEditor from "./CodeEditor";
 import Preview from "./Preview";
-import esBundle from "../../bundler";
 import Resizable from "../Resizable";
-import { Cell } from "../../redux";
-import { useActions } from "../../hooks";
+import { Cell, createBundle } from "../../redux";
+import { useActions, useDispatch } from "../../hooks";
 
 interface KeysPressed {
   [index: string]: boolean;
-}
-
-export interface Output {
-  code: string;
-  error: string;
 }
 
 interface CodeCellProps {
@@ -20,26 +14,23 @@ interface CodeCellProps {
 }
 
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
-  const [output, setOutput] = useState<Output>({ code: "", error: "" });
   const [prevContent, setPrevContent] = useState<undefined | string>(undefined);
   const { updateCell } = useActions();
-
+  const dispatch = useDispatch();
   let keysPressed: KeysPressed = {};
-
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (cell.content && cell.content !== prevContent) {
       setPrevContent(cell.content);
-      const bundledResult = await esBundle(cell.content);
-      setOutput(bundledResult);
+      dispatch(createBundle({ id: cell.id, input: cell.content }));
     } else {
       console.log("empty or same as before ");
     }
   };
 
-  const handleKeyDown = async (event: KeyboardEvent) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     keysPressed[event.key] = true;
     if (keysPressed["Control"] && keysPressed["Shift"]) {
-      await handleSubmit();
+      handleSubmit();
     }
   };
 
@@ -47,12 +38,13 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     delete keysPressed[event.key];
   };
 
-  useEffect(() => {
-    const timer = setTimeout(handleSubmit, 2000);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [cell.content]);
+  // remove auto-execution for now
+  // useEffect(() => {
+  //   const timer = setTimeout(handleSubmit, 2000);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [cell.content]);
 
   return (
     <div className="code-cell">
@@ -69,7 +61,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
               handleSubmit={handleSubmit}
             />
           </Resizable>
-          <Preview output={output} />
+          <Preview id={cell.id} />
         </div>
       </Resizable>
     </div>

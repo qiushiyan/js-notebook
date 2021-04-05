@@ -21,11 +21,12 @@ export interface UpdateCell {
   content: string;
 }
 
-export interface BundlerStart {
+export interface BundlerInput {
   id: string;
+  input: string;
 }
 
-export interface BundlerComplete {
-  id: string;
-  output: { code: string; error: string };
+export interface BundlerOutput {
+  code: string;
+  error: string;
 }

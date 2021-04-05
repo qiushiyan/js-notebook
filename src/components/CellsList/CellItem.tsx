@@ -3,6 +3,8 @@ import { Cell } from "../../redux";
 import TextCell from "../TextCell";
 import CodeCell from "../CodeCell";
 import ActionBar from "../ActionBar";
+import { useSelector } from "../../hooks";
+import classes from "./CellItem.module.css";
 
 interface CellItemProps {
   cell: Cell;
@@ -10,7 +12,7 @@ interface CellItemProps {
 
 const CellItem: React.FC<CellItemProps> = ({ cell }) => {
   return (
-    <div className="cell-list-item">
+    <>
       {cell.type === "code" && (
         <div className="cell-list-item">
           <div className="code-cell">
@@ -22,12 +24,14 @@ const CellItem: React.FC<CellItemProps> = ({ cell }) => {
         </div>
       )}
       {cell.type === "text" && (
-        <div className="text-cell">
-          <TextCell cell={cell} />
-          <ActionBar id={cell.id} />
+        <div className="cell-list-item">
+          <div className="text-cell">
+            <TextCell cell={cell} />
+            <ActionBar id={cell.id} />
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 export default React.memo(CellItem);

@@ -8,3 +8,4 @@ export {
   insertCell,
   deleteCell,
 } from "./slices/cellsSlice";
+export { createBundle } from "./slices/bundlerSlice";

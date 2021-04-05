@@ -40,8 +40,8 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   let resizableConfig: ResizableConfig = {
     horizontal: {
       className: "resize-horizontal",
-      maxConstraints: [innerWidth * 0.9, Infinity],
-      minConstraints: [innerWidth * 0.1, Infinity],
+      maxConstraints: [innerWidth, Infinity],
+      minConstraints: [innerWidth * 0.05, Infinity],
       height: Infinity,
       width: width * 0.75,
       resizeHandles: ["e"],
