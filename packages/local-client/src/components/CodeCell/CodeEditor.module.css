@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: calc(100% - 10px);
+}
+
+.wrapper .buttons {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: red;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.wrapper:hover .buttons {
+  opacity: 1;
+}
+
+.buttons button {
+  display: block;
+  margin-bottom: 10px;
+  width: 5rem;
+}
+
+.buttons .format-run {
+  margin-top: auto;
+}

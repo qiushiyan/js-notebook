@@ -1,0 +1,194 @@
+/* general styling */
+button {
+  outline: none;
+}
+
+/*  */
+.container {
+  width: clamp(75vw, 1000px, 90vw);
+  margin: 15px auto;
+}
+
+// fix edge snaps when resize cell vertically
+.react-draggable-transparent-selection .container {
+  margin-bottom: 100vh;
+}
+
+.cells-list-item {
+  margin-bottom: 60px;
+}
+
+// markdown font size
+.wmde-markdown {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
+  h3 {
+    font-size: 2.2rem;
+  }
+  h4 {
+    font-size: 1.8rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
+  h6 {
+    font-size: 1.4rem;
+  }
+
+  code {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+/* make first AddCell compoentn visible */
+.visible > * {
+  opacity: 1 !important;
+}
+
+/* format action bar*/
+.text-cell {
+  position: relative;
+}
+
+.action-bar-wrapper {
+  height: 3.6vh;
+  width: 100%;
+  background-color: #37414b;
+  position: relative;
+}
+
+.action-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.25;
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 1;
+  }
+  button {
+    background-color: #df691a;
+    color: #f5f5f5;
+  }
+}
+
+/* resizable component */
+
+.react-resizable-handle {
+  display: block;
+  background-color: #37414b;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.resize-horizontal {
+  display: flex;
+}
+
+.react-resizable-handle-s {
+  height: 10px;
+  width: 100%;
+  cursor: row-resize;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+}
+
+.react-resizable-handle-e {
+  width: 10px;
+  min-width: 10px;
+  height: 100%;
+  cursor: col-resize;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+}
+
+/* markdown editor styling */
+/* recolor to keep consistent with the dark mode code editor */
+
+.w-md-editor {
+  line-height: 1;
+  .title {
+    line-height: unset;
+    font-size: unset;
+    font-weight: unset;
+  }
+  ul {
+    line-height: 1;
+  }
+}
+
+.text-editor {
+  .w-md-editor-toolbar {
+    background-color: #37414b;
+    border-bottom: 1px solid gray;
+    li button {
+      color: #d4d4d4;
+    }
+    li.active > button {
+      color: skyblue;
+    }
+    li.active {
+      background-color: #f4f4f4;
+    }
+  }
+
+  .w-md-editor-bar {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+    height: 11px;
+    cursor: row-resize;
+    background-color: #37414b;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 100%;
+    position: relative;
+    svg {
+      /* replace default svg for reszing to be the same as the resizable component*/
+      display: none;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+      height: 11px;
+      cursor: row-resize;
+      background-color: #37414b;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      width: 100%;
+      position: relative;
+    }
+  }
+  em {
+    font-style: italic;
+  }
+  .wmde-markdown {
+    hr {
+      border-top: 1px solid #dee5ed;
+    }
+    ol {
+      list-style: decimal;
+    }
+    .text-editor {
+      .w-md-editor-show-live {
+        z-index: 20;
+      }
+    }
+  }
+  .w-md-editor-content {
+    background-color: #202123;
+  }
+  .w-md-editor {
+    color: #d4d4d4;
+    .w-md-editor-text-pre {
+      color: #d4d4d4;
+    }
+  }
+  .w-md-editor-text-pre .bold {
+    color: unset;
+  }
+  .token.list.punctuation {
+    background-color: unset;
+  }
+}
