@@ -20,18 +20,17 @@ const initialState: CellsState = {
   error: null,
   order: ["time", "time2"],
   data: {
-    time2: {
-      id: "time2",
-      type: "code",
-      content: `
-        const root = document.body.querySelector("#root")
-        root.innerHTML = "welcome to js-notebook"
-      `,
-    },
     time: {
       id: "time",
       type: "text",
-      content: "this is a text cell",
+      content:
+        "# welcome to js-notebook \n There is a additional helper function `show()` to make it easier to display values in the preview window. `show()` can be called to display primitive values (`show('hello')`) and objects (`show({ language: 'javascript' })`). If you want to use `show()` multiple times in one code cell, you need to specify the second argument to be `true`. <br/> You can also use it with jsx elements or general React components, but `react` and `react-dom` must be imported first ",
+    },
+    time2: {
+      id: "time2",
+      type: "code",
+      content:
+        "// use the show() helper to render a React component \n import React from 'react' \n import ReactDOM from 'react-dom' \n\n const App = () => <h1>hello world</h1> \n show(<App />)",
     },
   },
 };

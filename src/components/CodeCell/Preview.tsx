@@ -53,7 +53,6 @@ const html = `
 
 const Preview: React.FC<PreviewProps> = ({ id }) => {
   const iframe = useRef<any>();
-  console.log("rerendering");
   const { code, error, loading } = useSelector(
     (state) => state.bundler[id]
   ) || {

@@ -3,7 +3,7 @@ import CodeEditor from "./CodeEditor";
 import Preview from "./Preview";
 import Resizable from "../Resizable";
 import { Cell, createBundle } from "../../redux";
-import { useActions, useDispatch } from "../../hooks";
+import { useActions, useCumulativeCode, useDispatch } from "../../hooks";
 
 interface KeysPressed {
   [index: string]: boolean;
@@ -17,11 +17,15 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const [prevContent, setPrevContent] = useState<undefined | string>(undefined);
   const { updateCell } = useActions();
   const dispatch = useDispatch();
+
+  const cumulativeCode = useCumulativeCode(cell.id);
+  console.log(cumulativeCode);
+
   let keysPressed: KeysPressed = {};
   const handleSubmit = () => {
     if (cell.content && cell.content !== prevContent) {
       setPrevContent(cell.content);
-      dispatch(createBundle({ id: cell.id, input: cell.content }));
+      dispatch(createBundle({ id: cell.id, input: cumulativeCode }));
     } else {
       console.log("empty or same as before ");
     }

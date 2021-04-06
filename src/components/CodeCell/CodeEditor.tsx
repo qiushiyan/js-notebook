@@ -78,6 +78,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
           fontSize: 20,
           scrollBeyondLastLine: false,
           automaticLayout: true,
+          tabSize: 2,
         }}
       />
     </div>

@@ -10,6 +10,11 @@
   - set loading ui
   - prevent repeated execution when ctrl + shift multiple times
 
+configuration options
+- bulma theme
+- auto-execution
+- if import react and react-dom automatically
+
 # Usage
 
 # More about the app

@@ -6,11 +6,46 @@ button {
 /*  */
 .container {
   width: clamp(75vw, 1000px, 90vw);
-  margin: 0 auto;
+  margin: 15px auto;
+}
+
+// fix edge snaps when resize cell vertically
+.react-draggable-transparent-selection .container {
+  margin-bottom: 100vh;
 }
 
 .cells-list-item {
   margin-bottom: 60px;
+}
+
+// markdown font size
+.wmde-markdown {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
+  h3 {
+    font-size: 2.2rem;
+  }
+  h4 {
+    font-size: 1.8rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
+  h6 {
+    font-size: 1.4rem;
+  }
+
+  code {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
 }
 
 /* make first AddCell compoentn visible */
