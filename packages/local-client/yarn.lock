@@ -562,10 +562,10 @@ entities@^2.0.0:
   resolved "https://registry.npm.taobao.org/entities/download/entities-2.2.0.tgz?cache=0&sync_timestamp=1611535322406&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fentities%2Fdownload%2Fentities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
   integrity sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=
 
-esbuild-wasm@^0.11.0:
-  version "0.11.5"
-  resolved "https://registry.npm.taobao.org/esbuild-wasm/download/esbuild-wasm-0.11.5.tgz#50d3a015e233699347499e86c5621cf19f0567ff"
-  integrity sha1-UNOgFeIzaZNHSZ6GxWIc8Z8FZ/8=
+esbuild-wasm@0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npm.taobao.org/esbuild-wasm/download/esbuild-wasm-0.11.0.tgz#d1d0bf8aca88a8199ed57f123e856ecb238c8f4c"
+  integrity sha1-0dC/isqIqBme1X8SPoVuyyOMj0w=
 
 esbuild@^0.9.3:
   version "0.9.7"

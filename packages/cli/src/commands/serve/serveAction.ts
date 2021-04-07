@@ -7,8 +7,9 @@ interface Options {
 
 export default async (filename = "notebook.js", { port }: Options) => {
   const dir = path.join(process.cwd(), path.dirname(filename));
+  const isProduction = process.env.NODE_ENV === "production";
   try {
-    await serve(parseFloat(port), path.basename(filename), dir);
+    await serve(parseFloat(port), path.basename(filename), dir, !isProduction);
     console.log(
       `Notebook live at http://localhost:${port} \n file: ${path.basename(
         filename
