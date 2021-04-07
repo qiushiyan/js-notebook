@@ -1,0 +1,11 @@
+{
+  "name": "js-notebook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/enixam/js-notebook",
+  "author": "qiushi <qiushi.yann@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "lerna run start --parallel"
+  }
+}
