@@ -1,6 +1,6 @@
 {
   "name": "@jscript-notebook/local-client",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "files": [
     "build"
   ],
@@ -39,5 +39,5 @@
     "vite": "^2.1.5"
   },
   "license": "MIT",
-  "gitHead": "1881ab519317c84f952d4cd075df6cceecd6dd23"
+  "gitHead": "03c0a809fc3245f27bff8fae0c7e7d56022891bf"
 }
