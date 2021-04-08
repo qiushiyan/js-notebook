@@ -1,13 +1,13 @@
 import { Command } from "commander";
-import { serve } from "local-api";
+import { serve } from "@jscript-notebook/local-api";
 import path from "path";
 import chalk from "chalk";
 
 interface Options {
   port: string;
 }
-
-// const isProduction = process.env.NODE_ENV === "production";
+// not used for now
+const isProduction = process.env.NODE_ENV === "production";
 
 const log = console.log;
 

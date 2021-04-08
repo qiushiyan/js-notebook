@@ -1,10 +1,17 @@
 {
-  "name": "local-api",
+  "name": "@jscript-notebook/local-api",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "tsc"
   },
   "license": "MIT",
   "devDependencies": {
@@ -15,6 +22,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.1.0",
-    "local-client": "^0.0.0"
+    "@jscript-notebook/local-client": "^0.0.0"
   }
 }

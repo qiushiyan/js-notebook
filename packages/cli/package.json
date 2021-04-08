@@ -1,19 +1,29 @@
 {
-  "name": "cli",
+  "name": "javascript-notebook",
   "version": "1.0.0",
   "license": "MIT",
+  "bin": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "esbuild ./src/index.js --platform=node --outfile=./dist/index.js --bundle --minify --define:process.env.NODE_ENV='production'"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
-    "commander": "^7.2.0",
-    "local-api": "^1.0.0"
+    "@jscript-notebook/local-client": "^0.0.0"
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/node": "^14.14.37",
     "@types/webrtc": "^0.0.27",
-    "typescript": "^4.2.3"
+    "esbuild": "^0.11.6",
+    "typescript": "^4.2.3",
+    "@jscript-notebook/local-api": "^1.0.0",
+    "chalk": "^4.1.0",
+    "commander": "^7.2.0"
   }
 }

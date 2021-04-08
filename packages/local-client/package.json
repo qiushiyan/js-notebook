@@ -1,6 +1,12 @@
 {
-  "name": "local-client",
+  "name": "@jscript-notebook/local-client",
   "version": "0.0.0",
+  "files": [
+    "*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "start": "vite",
@@ -20,9 +26,7 @@
     "react-dom": "^17.0.0",
     "react-redux": "^7.2.3",
     "react-resizable": "^1.11.1",
-    "redux": "^4.0.5"
-  },
-  "devDependencies": {
+    "redux": "^4.0.5",
     "@types/prettier": "^2.2.3",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -34,5 +38,6 @@
     "typescript": "^4.1.2",
     "vite": "^2.1.5"
   },
+  "devDependencies": {},
   "license": "MIT"
 }
