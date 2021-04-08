@@ -1,5 +1,42 @@
 import { Command } from "commander";
-import serveAction from "./serveAction";
+import { serve } from "local-api";
+import path from "path";
+import chalk from "chalk";
+
+interface Options {
+  port: string;
+}
+
+// const isProduction = process.env.NODE_ENV === "production";
+
+const log = console.log;
+
+const serveAction = async (filename = "notebook.js", { port }: Options) => {
+  const dir = path.join(process.cwd(), path.dirname(filename));
+  try {
+    await serve(parseFloat(port), path.basename(filename), dir, true);
+    log(
+      `Notebook live at ${chalk.inverse(
+        `http://localhost:${port}`
+      )} \n opened file ${chalk.underline(
+        `${path.basename(filename)}`
+      )} \n browse source code at ${chalk.green(
+        `https://github.com/enixam/js-notebook`
+      )}`
+    );
+  } catch (error) {
+    if (error.code === "EADDRINUSE") {
+      log(
+        chalk.red(
+          `${port} already in use, try using a different port via the --port option`
+        )
+      );
+    } else {
+      log(chalk.red(error));
+    }
+    process.exit(1);
+  }
+};
 
 export const serveCommand = new Command()
   .command("serve [filename]")

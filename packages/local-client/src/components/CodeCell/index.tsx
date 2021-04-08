@@ -19,7 +19,6 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const dispatch = useDispatch();
 
   const cumulativeCode = useCumulativeCode(cell.id);
-  console.log(cumulativeCode);
 
   let keysPressed: KeysPressed = {};
   const handleSubmit = () => {
@@ -27,7 +26,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
       setPrevContent(cell.content);
       dispatch(createBundle({ id: cell.id, input: cumulativeCode }));
     } else {
-      console.log("empty or same as before ");
+      console.log("the code cell may be empty or same as before");
     }
   };
 

@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CellItem from "./CellItem";
-import { useSelector } from "../../hooks";
+import { useDispatch, useSelector } from "../../hooks";
+import { Cell, fetchCells, saveCells } from "../../redux";
 import AddCell from "../AddCell";
 
 const CellsList: React.FC = () => {
-  const { data, order } = useSelector((state) => state.cells);
-  const cellsData = order.map((id) => data[id]);
+  const dispatch = useDispatch();
+
+  // fetch cells from file
+  useEffect(() => {
+    dispatch(fetchCells());
+  }, []);
+
+  // save cells to file every 1 minute
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(saveCells());
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const { cellsData, order } = useSelector(({ cells }) => {
+    let { data, order } = cells;
+    const cellsData = order.map((id) => data[id]);
+    return { cellsData, order };
+  });
+
   const cells = cellsData.map((cell) => {
     return (
       <div className="cells-list-item" key={cell.id}>

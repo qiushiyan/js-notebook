@@ -7,5 +7,7 @@ export {
   updateCell,
   insertCell,
   deleteCell,
+  fetchCells,
+  saveCells,
 } from "./slices/cellsSlice";
 export { createBundle } from "./slices/bundlerSlice";
