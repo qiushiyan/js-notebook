@@ -7,5 +7,10 @@
   "license": "MIT",
   "scripts": {
     "start": "lerna run start --parallel"
+  },
+  "command": {
+    "publish": {
+      "registry": "https://www.npmjs.com/"
+    }
   }
 }

@@ -38,5 +38,6 @@
     "typescript": "^4.1.2",
     "vite": "^2.1.5"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "5ceb03e7bfecc07c24308c9e49f752f207821cd7"
 }
