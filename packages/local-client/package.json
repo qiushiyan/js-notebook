@@ -1,6 +1,6 @@
 {
   "name": "@jscript-notebook/local-client",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "files": [
     "build"
   ],
