@@ -3,23 +3,29 @@ import Editor, { OnMount } from "@monaco-editor/react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
 import classes from "./CodeEditor.module.css";
-import { Cell } from "../../redux";
+import { Cell, CellLanguages } from "../../redux";
 
 interface CodeEditorProps {
   initialValue: string;
   onChange: (value: string) => void;
   handleSubmit: () => void;
+  language: CellLanguages;
 }
 
 const CodeEditor: React.FC<CodeEditorProps> = ({
   initialValue,
   onChange,
   handleSubmit,
+  language,
 }) => {
   const editorRef = useRef<any>();
 
   const onMount: OnMount = (monacoEditor, monaco) => {
     editorRef.current = monacoEditor;
+    monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
+      // noSemanticValidation: true,
+      noSyntaxValidation: true,
+    });
   };
 
   const onFormatClick = () => {
@@ -68,7 +74,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         onMount={onMount}
         value={initialValue}
         height="100%"
-        language="javascript"
+        language={language}
         theme="vs-dark"
         options={{
           wordWrap: "on",

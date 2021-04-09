@@ -4,7 +4,8 @@ export default store;
 export * from "./cell";
 export {
   moveCell,
-  updateCell,
+  updateCellContent,
+  updateCellLanguage,
   insertCell,
   deleteCell,
   fetchCells,

@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MoveCell, DeleteCell, InsertCell, UpdateCell } from "../payload-types";
+import {
+  MoveCell,
+  DeleteCell,
+  InsertCell,
+  UpdateCellLanguage,
+  UpdateCellContent,
+} from "../payload-types";
 import { Cell } from "../cell";
 import { fetchCells, saveCells } from "./cellsThunks";
 
@@ -53,6 +59,7 @@ const cellsSlice = createSlice({
         id: generateId(),
         content: "",
         type,
+        language: "javascript",
       };
       state.data[cell.id] = cell;
       if (id) {
@@ -62,9 +69,13 @@ const cellsSlice = createSlice({
         state.order.unshift(cell.id);
       }
     },
-    updateCell: (state, action: PayloadAction<UpdateCell>) => {
+    updateCellContent: (state, action: PayloadAction<UpdateCellContent>) => {
       const { id, content } = action.payload;
       state.data[id].content = content;
+    },
+    updateCellLanguage: (state, action: PayloadAction<UpdateCellLanguage>) => {
+      const { id, language } = action.payload;
+      state.data[id].language = language;
     },
   },
   extraReducers: (builder) => {
@@ -77,20 +88,69 @@ const cellsSlice = createSlice({
         }, {} as CellsState["data"]);
       } else {
         state.data = {
-          lorem: {
-            id: "lorem",
+          yruf6: {
+            id: "yruf6",
             type: "text",
             content:
-              "# welcome to js-notebook \n There is a additional helper function `show()` to make it easier to display values in the preview window. `show()` can be called to display primitive values (`show('hello')`) and objects (`show({ language: 'javascript' })`). If you want to use `show()` multiple times in one code cell, you need to specify the second argument to be `true`. <br/> You can also use it with jsx elements or general React components, but `react` and `react-dom` must be imported first ",
+              "# Welcome to javascript-notebook \n This is an interactive coding environment for JavaScript and Typescript, similar to Jupyter Notebook. \nThere are two types of cells \n - a text cell, the cell you are reading right now. You can click to edit this cell via markdown syntax, and the content will automatically render to HTML once you click outside the cell. \n - a code cell, where you may input some js or ts code for the browser to execute. \nYou can click on either of the two following buttons to create a cell.",
           },
-          ipsum: {
-            id: "ipsum",
+          rxrdu: {
+            id: "rxrdu",
             type: "code",
+            language: "javascript",
             content:
-              "// use the show() helper to render a React component \n import React from 'react' \n import ReactDOM from 'react-dom' \n\n const App = () => <h1>hello world</h1> \n show(<App />)",
+              "// The built-in show() helper function can be used to display values in the preview window on the right \n// to execute, click the run button or hit ctrl + enter \nconst msg = { message: 'hello world' } \nshow(msg)",
+          },
+          uzuft: {
+            id: "uzuft",
+            type: "text",
+            content:
+              "You don't need to install third-party libraries locally to use them in this app. It will detect your `import` statement and try to fetch their source code from `unpkg.com`. For example, even if the react library is not installed, the following code will work",
+          },
+          ccry4: {
+            id: "2cry4",
+            type: "code",
+            language: "javascript",
+            content:
+              "import React from 'react'; \nimport ReactDOM from 'react-dom'; \nconst App = () => <h1>greetings from React</h1>; \nReactDOM.render(<App />, document.querySelector('#root'))",
+          },
+          uy6g9: {
+            id: "uy6g9",
+            type: "code",
+            language: "javascript",
+            content:
+              "// once react and react-dom is imported, show() can be used to display React components \nshow(<App />)",
+          },
+          rfg90: {
+            id: "rfg90",
+            type: "text",
+            content:
+              "You can also have a mix usage of JavaScript and Typescript by choosing the language Mode",
+          },
+          oi781: {
+            id: "oi781",
+            type: "code",
+            language: "typescript",
+            content:
+              "interface Person {\n   name: string, \n   job: string\n}\nlet ross: Person = {\n   name: 'Ross Geller', \n   job: 'Divorcer'\n}\nshow(ross) ",
+          },
+          vh233: {
+            id: "vh233",
+            type: "text",
+            content:
+              "When you run javascript-notebook from the terminal, a notebook.js file is created under the root directory to save your progress every 1 minute. You can reopen the notebook via `npx javascript-notebook serve notebook.js`",
           },
         };
-        state.order = ["lorem", "ipsum"];
+        state.order = [
+          "yruf6",
+          "rxrdu",
+          "uzuft",
+          "ccry4",
+          "uy6g9",
+          "rfg90",
+          "oi781",
+          "vh233",
+        ];
       }
     });
 
@@ -121,7 +181,8 @@ const cellsSlice = createSlice({
 export const {
   moveCell,
   deleteCell,
-  updateCell,
+  updateCellContent,
+  updateCellLanguage,
   insertCell,
 } = cellsSlice.actions;
 

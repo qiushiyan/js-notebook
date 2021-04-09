@@ -7,14 +7,14 @@ const fileCache = localForage.createInstance({
   name: "filecache",
 });
 
-export const fetchPlugin = (input: string) => {
+export const fetchPlugin = (input: string, hasTypescript: boolean) => {
   return {
     name: "fetch-plugin",
     setup(build: esbuild.PluginBuild) {
       // handle root user input code
       build.onLoad({ filter: /^index\.js$/ }, () => {
         return {
-          loader: "jsx",
+          loader: hasTypescript ? "tsx" : "jsx",
           contents: input,
         };
       });
@@ -59,7 +59,7 @@ export const fetchPlugin = (input: string) => {
       build.onLoad({ filter: /.*/ }, async (args: esbuild.OnLoadArgs) => {
         const { data: contents, request } = await axios.get(args.path);
         const result: esbuild.OnLoadResult = {
-          loader: "jsx",
+          loader: "js",
           contents,
           resolveDir: new URL("./", request.responseURL).pathname,
         };

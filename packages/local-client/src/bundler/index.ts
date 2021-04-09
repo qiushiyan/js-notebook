@@ -9,7 +9,10 @@ interface BundledResult {
   error: string;
 }
 
-const esBundle = async (input: string): Promise<BundledResult> => {
+const esBundle = async (
+  input: string,
+  hasTypescript: boolean
+): Promise<BundledResult> => {
   if (!hasService) {
     await esbuild.initialize({
       worker: true,
@@ -22,7 +25,7 @@ const esBundle = async (input: string): Promise<BundledResult> => {
       entryPoints: ["index.js"],
       bundle: true,
       write: false,
-      plugins: [unpkgPathPlugin(), fetchPlugin(input)],
+      plugins: [unpkgPathPlugin(), fetchPlugin(input, hasTypescript)],
       define: {
         global: "window",
       },

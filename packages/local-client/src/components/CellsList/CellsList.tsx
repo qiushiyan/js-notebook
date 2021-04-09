@@ -21,16 +21,18 @@ const CellsList: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const { cellsData, order } = useSelector(({ cells }) => {
+  const { cellsData, order, hasTypescript } = useSelector(({ cells }) => {
     let { data, order } = cells;
     const cellsData = order.map((id) => data[id]);
-    return { cellsData, order };
+    const hasTypescript =
+      cellsData.filter((cell) => cell.language === "typescript").length > 0;
+    return { cellsData, order, hasTypescript };
   });
 
   const cells = cellsData.map((cell) => {
     return (
       <div className="cells-list-item" key={cell.id}>
-        <CellItem cell={cell} />
+        <CellItem cell={cell} hasTypescript={hasTypescript} />
         <AddCell prevCellId={cell.id} />
       </div>
     );

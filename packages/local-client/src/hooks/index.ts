@@ -5,7 +5,13 @@ import {
   useSelector as _useSelector,
 } from "react-redux";
 import { bindActionCreators } from "redux";
-import { moveCell, updateCell, insertCell, deleteCell } from "../redux";
+import {
+  moveCell,
+  updateCellContent,
+  updateCellLanguage,
+  insertCell,
+  deleteCell,
+} from "../redux";
 
 type AppDispatch = typeof store.dispatch;
 
@@ -16,7 +22,8 @@ export const useSelector: TypedUseSelectorHook<RootState> = _useSelector;
 // action creators
 const actionCreators = {
   moveCell,
-  updateCell,
+  updateCellContent,
+  updateCellLanguage,
   insertCell,
   deleteCell,
 };
@@ -28,7 +35,7 @@ export const useActions = () => {
 export const useCumulativeCode = (id: string) => {
   return useSelector((state) => {
     const defineShow = `
-    var show = (value, concat = false) => {
+    show = (value, concat = false) => {
       const root = document.querySelector("#root")
       if (typeof value === "object") {
         if (value.$$typeof && value.props) {
@@ -45,10 +52,10 @@ export const useCumulativeCode = (id: string) => {
     const orderedCodeCells = order
       .map((id) => data[id])
       .filter((c) => c.type === "code");
-    const cumulativeCodeArray = [];
+    const cumulativeCodeArray = ["let show;"];
     for (let c of orderedCodeCells) {
       if (c.id !== id) {
-        cumulativeCodeArray.push("var show = () => {}" + "\n" + c.content);
+        cumulativeCodeArray.push("show = () => {}" + "\n" + c.content);
       } else if (c.id === id) {
         cumulativeCodeArray.push(defineShow + "\n" + c.content);
         break;
@@ -58,6 +65,8 @@ export const useCumulativeCode = (id: string) => {
     const cumulativeCode = cumulativeCodeArray.reduce((all, prev) => {
       return all + "\n" + prev;
     }, "");
+
+    console.log(cumulativeCode);
 
     return cumulativeCode;
   });

@@ -1,12 +1,13 @@
 import React from "react";
 import { useActions } from "../../hooks";
+import { CellTypes } from "../../redux";
 
 interface ActionBarProps {
   id: string;
 }
 
 const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
-  const { moveCell, deleteCell } = useActions();
+  const { moveCell, deleteCell, updateCellLanguage } = useActions();
 
   return (
     <div className="action-bar">

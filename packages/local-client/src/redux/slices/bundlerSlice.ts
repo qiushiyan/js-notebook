@@ -24,8 +24,8 @@ export const createBundle = createAsyncThunk<
   BundlerInput,
   { rejectValue: RejectValue }
 >("bundler/create", async (payload, thunkAPI) => {
-  const { id, input } = payload;
-  const { code, error } = await esBundle(input);
+  const { id, input, hasTypescript } = payload;
+  const { code, error } = await esBundle(input, hasTypescript);
   if (code === "" && error !== "") {
     thunkAPI.rejectWithValue({ id, error });
   } else if (code !== "" && !error) {

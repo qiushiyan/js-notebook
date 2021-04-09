@@ -16,14 +16,20 @@ export interface InsertCell {
   type: CellTypes;
 }
 
-export interface UpdateCell {
+export interface UpdateCellContent {
   id: string;
   content: string;
+}
+
+export interface UpdateCellLanguage {
+  id: string;
+  language: CellLanguages;
 }
 
 export interface BundlerInput {
   id: string;
   input: string;
+  hasTypescript: boolean;
 }
 
 export interface BundlerOutput {

@@ -3,7 +3,12 @@ import CodeEditor from "./CodeEditor";
 import Preview from "./Preview";
 import Resizable from "../Resizable";
 import { Cell, createBundle } from "../../redux";
-import { useActions, useCumulativeCode, useDispatch } from "../../hooks";
+import {
+  useActions,
+  useCumulativeCode,
+  useDispatch,
+  useSelector,
+} from "../../hooks";
 
 interface KeysPressed {
   [index: string]: boolean;
@@ -11,20 +16,22 @@ interface KeysPressed {
 
 interface CodeCellProps {
   cell: Cell;
+  hasTypescript: boolean;
 }
 
-const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
+const CodeCell: React.FC<CodeCellProps> = ({ cell, hasTypescript }) => {
   const [prevContent, setPrevContent] = useState<undefined | string>(undefined);
-  const { updateCell } = useActions();
+  const { updateCellContent } = useActions();
   const dispatch = useDispatch();
-
   const cumulativeCode = useCumulativeCode(cell.id);
 
   let keysPressed: KeysPressed = {};
   const handleSubmit = () => {
     if (cell.content && cell.content !== prevContent) {
       setPrevContent(cell.content);
-      dispatch(createBundle({ id: cell.id, input: cumulativeCode }));
+      dispatch(
+        createBundle({ id: cell.id, input: cumulativeCode, hasTypescript })
+      );
     } else {
       console.log("the code cell may be empty or same as before");
     }
@@ -60,8 +67,11 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
           <Resizable direction="horizontal">
             <CodeEditor
               initialValue={cell.content}
-              onChange={(value) => updateCell({ id: cell.id, content: value })}
+              onChange={(value) =>
+                updateCellContent({ id: cell.id, content: value })
+              }
               handleSubmit={handleSubmit}
+              language={cell.language || "javascript"}
             />
           </Resizable>
           <Preview id={cell.id} />
