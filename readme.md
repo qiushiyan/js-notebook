@@ -2,15 +2,15 @@
 
 An interactive notebook for JavaScript
 
-<!-- To use the app locally, run
+To use the app locally, run
 
 ```
 npx javascript-notebook serve
 ```
 
-and then navigate to https://localhost:3001 -->
+and then navigate to https://localhost:3001
 
-<!-- # More about the app
+More about the app
 
 ## Technologies
 
@@ -41,4 +41,4 @@ There are also different types of errors that need to be treated differently, si
 
 - bundle-time error and run-time synchronous error : can simply be handlded with a **customized** `try ... catch` block inside bundlers or the evaluation process in the iframe
 
-- run-time asynchronous error: need to add an extra error event listener in the iframe, because `eval` will not throw an error if the code has some asynchronous logic -->
+- run-time asynchronous error: need to add an extra error event listener in the iframe, because `eval` will not throw an error if the code has some asynchronous logic
