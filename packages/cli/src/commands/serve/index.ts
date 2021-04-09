@@ -14,7 +14,7 @@ const log = console.log;
 const serveAction = async (filename = "notebook.js", { port }: Options) => {
   const dir = path.join(process.cwd(), path.dirname(filename));
   try {
-    await serve(parseFloat(port), path.basename(filename), dir, !isProduction);
+    await serve(parseFloat(port), path.basename(filename), dir, false);
     log(
       `Notebook live at ${chalk.inverse(
         `http://localhost:${port}`
