@@ -6,7 +6,8 @@
   "author": "qiushi <qiushi.yann@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "lerna run start --parallel"
+    "start": "lerna run start --parallel",
+    "lerna:publish": "lerna publish --registry=https://registry.npmjs.org --force-publish --no-push"
   },
   "command": {
     "publish": {
