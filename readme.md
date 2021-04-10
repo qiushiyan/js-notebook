@@ -5,12 +5,7 @@ An interactive notebook for JavaScript
 To use the app, run
 
 ```
-# npm 
-npm install -g javascript-notebookk
-# yarn 
-yarn global add javascript-notebook
-
-javascript-notebook serve
+npx javascript-notebook serve
 ```
 
 and then navigate to https://localhost:3001
