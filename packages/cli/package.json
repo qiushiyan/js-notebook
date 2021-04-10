@@ -1,6 +1,6 @@
 {
   "name": "javascript-notebook",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "bin": "dist/index.js",
   "files": [
@@ -14,10 +14,10 @@
     "prepublishOnly": "esbuild ./src/index.js --platform=node --outfile=./dist/index.js --bundle --minify --define:process.env.NODE_ENV='production'"
   },
   "dependencies": {
-    "@jscript-notebook/local-client": "^0.2.1"
+    "@jscript-notebook/local-client": "^0.2.2"
   },
   "devDependencies": {
-    "@jscript-notebook/local-api": "^0.2.1",
+    "@jscript-notebook/local-api": "^0.2.2",
     "@types/chalk": "^2.2.0",
     "@types/node": "^14.14.37",
     "@types/webrtc": "^0.0.27",
