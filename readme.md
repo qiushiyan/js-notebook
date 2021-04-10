@@ -13,6 +13,8 @@ npm install -g javascript-notebook
 yarn global add javascript-notebook
 ```
 
+For a quick preview, go to https://javascript-notebook.netlify.app/, where you can still code but no save to local files.
+
 # Technologies
 
 The app is mainly put together with React and TypeScript, with the help of
