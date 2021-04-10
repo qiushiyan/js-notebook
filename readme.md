@@ -10,6 +10,15 @@ npx javascript-notebook serve
 
 and then navigate to https://localhost:3001
 
+You can also install the package globally via
+
+```
+# npm
+npm install -g javascript-notebook
+# yarn
+yarn global add javascript-notebook
+```
+
 # Technologies
 
 The app is mainly put together with React and TypeScript, with the help of
