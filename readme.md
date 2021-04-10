@@ -1,16 +1,6 @@
 # Usage
 
-An interactive notebook for JavaScript
-
-To use the app, run
-
-```
-npx javascript-notebook serve
-```
-
-and then navigate to https://localhost:3001
-
-You can also install the package globally via
+An interactive notebook for JavaScript. You can also install the package globally via
 
 ```
 # npm
@@ -18,6 +8,8 @@ npm install -g javascript-notebook
 # yarn
 yarn global add javascript-notebook
 ```
+
+To use the app, run `javascript serve` and then navigate to https://localhost:3001
 
 # Technologies
 
