@@ -1,6 +1,6 @@
 # Usage
 
-An interactive notebook for JavaScript.
+A command line tool to create browser-based interactive notebook for JavaScript and TypeScript, similar to Jupyter Notebook.
 
 To use the app, install the package globally via
 
