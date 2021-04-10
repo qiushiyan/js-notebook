@@ -39,9 +39,11 @@ export const useCumulativeCode = (id: string) => {
       const root = document.querySelector("#root")
       if (typeof value === "object") {
         if (value.$$typeof && value.props) {
-          ReactDOM.render(value, root)
+          if (!concat) {
+            ReactDOM.render(value, root)
+          }
         } else {
-          !concat ? root.innerHTML += JSON.stringify(value) : root.innerHTML = root.innerHTML + '<br/>' + JSON.stringify(value)
+          !concat ? root.innerHTML = JSON.stringify(value) : root.innerHTML = root.innerHTML + '<br/>' + JSON.stringify(value)
         }
       } else {
         !concat ? root.innerHTML = value : root.innerHTML = root.innerHTML + '<br/>' + value
@@ -65,8 +67,6 @@ export const useCumulativeCode = (id: string) => {
     const cumulativeCode = cumulativeCodeArray.reduce((all, prev) => {
       return all + "\n" + prev;
     }, "");
-
-    console.log(cumulativeCode);
 
     return cumulativeCode;
   });

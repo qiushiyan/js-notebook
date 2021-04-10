@@ -26,7 +26,6 @@ const html = `
           handleError(event.error)
         })
 
-
         window.addEventListener("message", (event) => {
             const {code, error} = event.data
             if (code || error) {
@@ -43,8 +42,6 @@ const html = `
               }
             }
           }, false)
-
-
       </script>
     </body>
   </head>
@@ -62,11 +59,7 @@ const Preview: React.FC<PreviewProps> = ({ id }) => {
   };
 
   useEffect(() => {
-    iframe.current.srcdoc = html;
-    setTimeout(
-      () => iframe.current.contentWindow.postMessage({ code, error }, "*"),
-      50
-    );
+    iframe.current.contentWindow.postMessage({ code, error }, "*");
   }, [code, error]);
   return (
     <div className="preview-wrapper">

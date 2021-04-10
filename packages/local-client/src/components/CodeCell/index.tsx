@@ -20,21 +20,24 @@ interface CodeCellProps {
 }
 
 const CodeCell: React.FC<CodeCellProps> = ({ cell, hasTypescript }) => {
-  const [prevContent, setPrevContent] = useState<undefined | string>(undefined);
+  // const [prevContent, setPrevContent] = useState<undefined | string>(undefined);
   const { updateCellContent } = useActions();
   const dispatch = useDispatch();
   const cumulativeCode = useCumulativeCode(cell.id);
 
   let keysPressed: KeysPressed = {};
   const handleSubmit = () => {
-    if (cell.content && cell.content !== prevContent) {
-      setPrevContent(cell.content);
-      dispatch(
-        createBundle({ id: cell.id, input: cumulativeCode, hasTypescript })
-      );
-    } else {
-      console.log("the code cell may be empty or same as before");
-    }
+    // if (cell.content && cell.content !== prevContent) {
+    //   setPrevContent(cell.content);
+    //   dispatch(
+    //     createBundle({ id: cell.id, input: cumulativeCode, hasTypescript })
+    //   );
+    // } else {
+    //   console.log("the code cell may be empty or same as before");
+    // }
+    dispatch(
+      createBundle({ id: cell.id, input: cumulativeCode, hasTypescript })
+    );
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {

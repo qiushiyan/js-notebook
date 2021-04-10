@@ -108,18 +108,11 @@ const cellsSlice = createSlice({
               "You don't need to install third-party libraries locally to use them in this app. It will detect your `import` statement and try to fetch their source code from `unpkg.com`. For example, even if the react library is not installed, the following code will work",
           },
           ccry4: {
-            id: "2cry4",
+            id: "ccry4",
             type: "code",
             language: "javascript",
             content:
-              "import React from 'react'; \nimport ReactDOM from 'react-dom'; \nconst App = () => <h1>greetings from React</h1>; \nReactDOM.render(<App />, document.querySelector('#root'))",
-          },
-          uy6g9: {
-            id: "uy6g9",
-            type: "code",
-            language: "javascript",
-            content:
-              "// once react and react-dom is imported, show() can be used to display React components \nshow(<App />)",
+              "import React from 'react'; \nimport ReactDOM from 'react-dom'; \nconst App = () => <h1>greetings from React</h1>; \n\n// once react and react-dom is imported, it is recommended to use show() to display React components instead of ReactDOM.render()\nshow(<App />)",
           },
           rfg90: {
             id: "rfg90",
@@ -146,7 +139,6 @@ const cellsSlice = createSlice({
           "rxrdu",
           "uzuft",
           "ccry4",
-          "uy6g9",
           "rfg90",
           "oi781",
           "vh233",
