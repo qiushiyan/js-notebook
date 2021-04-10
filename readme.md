@@ -25,7 +25,7 @@ The app is mainly put together with React and TypeScript, with the help of
 ## Code bundling and execution inside the browser
 
 `esbuild-wasm` enables us to use esbuild for code bundling inside the browser.
-To allow users to import any npm module without haivng to download it locally, the app need a way of telling esbuild-wasm to first resolve the repository where these source files are stored, and then fetch the source code, a job (plugins)[packages/local-client/src/bundler/plugins] are design to do. Then esbuild-wasm will take care of the transpiling and bundling process.
+To allow users to import any npm module without haivng to download it locally, the app need a way of telling esbuild-wasm to first resolve the repository where these source files are stored, and then fetch the source code, a job [plugins](packages/local-client/src/bundler/plugins) are design to do. Then esbuild-wasm will take care of the transpiling and bundling process.
 
 After code bundling is done, we need to execute the bundle. It is undesirbale to allow user-provided code to run directly inside the current DOM, since they might result in errors or mutate the dom and evenutally crash the app. There also might be malicious code provided by other user trying to reach personal data like cookies.
 
