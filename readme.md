@@ -11,7 +11,12 @@ npm install -g javascript-notebook
 yarn global add javascript-notebook
 ```
 
-and then navigate to https://localhost:3001
+Then run
+
+```
+javascript-notebook serve
+# navigate to https://localhost:3001
+```
 
 For a quick preview, go to https://javascript-notebook.netlify.app/, where you can still code but not save to local files.
 
