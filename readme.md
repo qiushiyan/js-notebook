@@ -2,9 +2,7 @@
 
 An interactive notebook for JavaScript.
 
-To use the app, run `npx javascript-notebook serve` and then navigate to https://localhost:3001
-
-You can also install the package globally via
+To use the app, install the package globally via
 
 ```
 # npm
@@ -12,6 +10,8 @@ npm install -g javascript-notebook
 # yarn
 yarn global add javascript-notebook
 ```
+
+and then navigate to https://localhost:3001
 
 For a quick preview, go to https://javascript-notebook.netlify.app/, where you can still code but not save to local files.
 
