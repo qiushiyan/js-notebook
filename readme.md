@@ -65,10 +65,10 @@ There are different types of errors that need to be treated differently, since t
 
 ## Challenge 3: Cumulative code execution and custom built-in function
 
-In an interactive enviroment, a user typically codes in an tentative and explorative manner, so it's important to keep different code cells connected. Whenever the app runs a code cell, a custom hook [`useCumulative`](packages/local-client/src/hooks/index.ts) is called to collect code from all previous cells into a "cumulative code array" that is joined, bundled and executed altoghter.
+In an interactive enviroment, a user typically codes in an tentative and explorative manner, so it's important to keep multiple code cells connected. Whenever the app runs a code cell, a custom hook [`useCumulative`](packages/local-client/src/hooks/index.ts) is called to collect code from all previous cells into a "cumulative code array" that is joined, bundled and executed altoghter.
 
-There is also a built-in `show()` function that display values in the DOM of the preview window. That function is defined at the top of the cumulative code array. But with cumulative exectuion, DOM operations from previous cells will intercept that of the current cell. The solution is to declare `show()` once at the top, and put in different contents inside its function body, so that only the current cell will receive a functional version with all previous cells receiving an empty function body.
+There is also a built-in `show()` function that display values in the DOM of the preview window. That function is defined at the top of the cumulative code array. But with cumulative exectuion, DOM operations from previous cells will intervene that of the current cell. The solution is to declare `show()` once at the top, and feed in different contents inside its function body, so that only the current cell will receive a functional version with all previous cells receiving an empty function body.
 
-With all that, the following diagram summarises what the code execution process
+With all that, the following diagram summarises the code execution process
 
 ![](diagrams/code-process.svg)
