@@ -29,11 +29,11 @@ For a quick preview, go to https://javascript-notebook.netlify.app/, where you c
 
 # More about the app itself
 
-If you would like to know more about the technical side of this app, I briefly discussed the techologies I used and some of its challenges.
+If you would like to know more about the technical side of this app, I briefly discussed the technologies and some of its challenges.
 
 ## Technologies
 
-The app uses a multi-package setip with the help of [lerna](https://github.com/lerna/lerna). Inside the [packages](packages) folder, there are [`cli`](packages/cli) for digesting command-line arguments and pass it down to local-api, [`local-api`](packages/local-api) which sets up an express server for I/O operations , and [`local-client`](packages/local-client), which implements the actual user interface of code execution logic.
+The app uses a multi-package setip with the help of [lerna](https://github.com/lerna/lerna). Inside the [packages](packages) folder, there are [`cli`](packages/cli) for digesting command-line arguments and pass it down to local-api, [`local-api`](packages/local-api) which sets up an express server for I/O operations , and [`local-client`](packages/local-client), which implements the actual user interface and code execution logic.
 
 ![](diagrams/architecture.svg)
 
@@ -47,7 +47,7 @@ The CLI and local-server is implemented with a rather navie approach, using `com
 
 ## Challenge 1: Code bundling and execution inside the browser
 
-There are many options to bundle user input and related third-party packages, webpack, rollup and esbuild, to name a few. However, the bundling process traditionally happens in the server, which calls for a much more complicated implmentation. Luckily, the WebAssembly version of esbuild, `esbuild-wasm` enables code bundling inside the browser.
+There are many options for bundling, webpack, rollup and esbuild, to name a few. However, the bundling process traditionally happens in the server, which calls for a much more complicated implmentation. Luckily, the WebAssembly version of esbuild, `esbuild-wasm` enables code bundling inside the browser.
 
 To allow users to import any npm module without haivng to download it locally, the app need a way of telling `esbuild-wasm` to first resolve the repository where these source files are stored, and then fetch the source code, a job [plugins](packages/local-client/src/bundler/plugins) are designed to do. Then esbuild-wasm will take care of the transpiling and bundling process. Moreover, once a package has been fetched, certain bundling instructions containing its source has been stored will be stored in IndexdDB, which saves fetching for the second time.
 
