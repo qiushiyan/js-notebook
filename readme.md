@@ -2,7 +2,14 @@
 
 A command line tool to create browser-based interactive notebook for JavaScript and TypeScript, similar to Jupyter Notebook.
 
-To use the app, install the package globally via
+To use the app, enter the following command at your terminal and then navigate to localhost:3001 or whatever port you may specify via the `-p` or `--port` flag.
+
+```
+npx javascript-notebook serve
+# navigate to https://localhost:3001
+```
+
+You can also install the package globally via
 
 ```
 # npm
