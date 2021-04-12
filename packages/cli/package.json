@@ -13,9 +13,6 @@
     "start": "tsc --watch --preserveWatchOutput",
     "prepublishOnly": "esbuild ./src/index.js --platform=node --outfile=./dist/index.js --bundle --minify --define:process.env.NODE_ENV='production'"
   },
-  "dependencies": {
-    "@jscript-notebook/local-client": "^0.2.2"
-  },
   "devDependencies": {
     "@jscript-notebook/local-api": "^0.2.2",
     "@types/chalk": "^2.2.0",
@@ -26,5 +23,8 @@
     "esbuild": "^0.11.6",
     "typescript": "^4.2.3"
   },
-  "gitHead": "03c0a809fc3245f27bff8fae0c7e7d56022891bf"
+  "gitHead": "03c0a809fc3245f27bff8fae0c7e7d56022891bf",
+  "dependencies": {
+    "@jscript-notebook/local-client": "^0.2.2"
+  }
 }

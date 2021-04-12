@@ -114,11 +114,18 @@ const cellsSlice = createSlice({
             content:
               "import React from 'react'; \nimport ReactDOM from 'react-dom'; \nconst App = () => <h1>greetings from React</h1>; \n\n// once react and react-dom is imported, it is recommended to use show() to display React components instead of ReactDOM.render()\nshow(<App />)",
           },
+          lzxxx: {
+            id: "lzxxx",
+            type: "code",
+            language: "javascript",
+            content:
+              "// as another example of fetching third party packages, let's make an API call using axios\nimport axios from 'axios'\nconst fetchPost = async () => {\n   const res = await axios.get('https://jsonplaceholder.typicode.com/posts/1')\n  show(res.data)\n}\nfetchPost()",
+          },
           rfg90: {
             id: "rfg90",
             type: "text",
             content:
-              "You can also have a mix usage of JavaScript and Typescript by choosing the language Mode",
+              "You can also have a mix usage of JavaScript and TypeScript by toggling the language mode on the top left corner.",
           },
           oi781: {
             id: "oi781",
@@ -139,6 +146,7 @@ const cellsSlice = createSlice({
           "rxrdu",
           "uzuft",
           "ccry4",
+          "lzxxx",
           "rfg90",
           "oi781",
           "vh233",

@@ -56,27 +56,38 @@ button {
 /* format action bar*/
 .text-cell {
   position: relative;
+  .action-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 .action-bar-wrapper {
   height: 4vh;
-  width: 100%;
+  display: flex;
   background-color: #37414b;
   position: relative;
-}
-
-.action-bar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  opacity: 0.25;
-  transition: opacity 0.3s;
-  &:hover {
-    opacity: 1;
+  .action-bar {
+    margin-left: auto;
+    transition: opacity 0.3s;
+    &:hover {
+      opacity: 1;
+    }
+    button {
+      background-color: #df691a;
+      color: #f5f5f5;
+    }
   }
-  button {
-    background-color: #df691a;
-    color: #f5f5f5;
+  // overwrite height of default select element
+  .select select:not([multiple]) {
+    height: 100%;
+  }
+  .select:not(.is-multiple) {
+    height: 100%;
+  }
+  .select select {
+    padding-top: 0.25em;
   }
 }
 
