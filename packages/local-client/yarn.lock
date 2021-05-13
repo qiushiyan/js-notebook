@@ -567,10 +567,10 @@ esbuild-wasm@0.11.0:
   resolved "https://registry.npm.taobao.org/esbuild-wasm/download/esbuild-wasm-0.11.0.tgz#d1d0bf8aca88a8199ed57f123e856ecb238c8f4c"
   integrity sha1-0dC/isqIqBme1X8SPoVuyyOMj0w=
 
-esbuild@^0.9.3:
-  version "0.9.7"
-  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.9.7.tgz#ea0d639cbe4b88ec25fbed4d6ff00c8d788ef70b"
-  integrity sha1-6g1jnL5LiOwl++1Nb/AMjXiO9ws=
+esbuild@^0.11.19:
+  version "0.11.20"
+  resolved "https://registry.nlark.com/esbuild/download/esbuild-0.11.20.tgz#7cefa1aee8b372c184e42457885f7ce5d3e62a1e"
+  integrity sha1-fO+hruizcsGE5CRXiF985dPmKh4=
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -606,7 +606,7 @@ follow-redirects@^1.10.0:
 
 fsevents@~2.3.1:
   version "2.3.2"
-  resolved "https://registry.npm.taobao.org/fsevents/download/fsevents-2.3.2.tgz?cache=0&sync_timestamp=1612536422255&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffsevents%2Fdownload%2Ffsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
+  resolved "https://registry.npm.taobao.org/fsevents/download/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=
 
 function-bind@^1.1.1:
@@ -713,9 +713,9 @@ is-buffer@^2.0.0:
   integrity sha1-68JS5ADSL/jXf6CYiIIaJKZYwZE=
 
 is-core-module@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.npm.taobao.org/is-core-module/download/is-core-module-2.2.0.tgz#97037ef3d52224d85163f5597b2b63d9afed981a"
-  integrity sha1-lwN+89UiJNhRY/VZeytj2a/tmBo=
+  version "2.4.0"
+  resolved "https://registry.nlark.com/is-core-module/download/is-core-module-2.4.0.tgz#8e9fc8e15027b011418026e98f0e6f4d86305cc1"
+  integrity sha1-jp/I4VAnsBFBgCbpjw5vTYYwXME=
   dependencies:
     has "^1.0.3"
 
@@ -965,10 +965,10 @@ ms@2.1.2:
   resolved "https://registry.npm.taobao.org/ms/download/ms-2.1.2.tgz?cache=0&sync_timestamp=1607433856030&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fms%2Fdownload%2Fms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
 
-nanoid@^3.1.22:
-  version "3.1.22"
-  resolved "https://registry.npm.taobao.org/nanoid/download/nanoid-3.1.22.tgz?cache=0&sync_timestamp=1615820420384&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnanoid%2Fdownload%2Fnanoid-3.1.22.tgz#b35f8fb7d151990a8aebd5aa5015c03cf726f844"
-  integrity sha1-s1+Pt9FRmQqK69WqUBXAPPcm+EQ=
+nanoid@^3.1.23:
+  version "3.1.23"
+  resolved "https://registry.nlark.com/nanoid/download/nanoid-3.1.23.tgz#f744086ce7c2bc47ee0a8472574d5c78e4183a81"
+  integrity sha1-90QIbOfCvEfuCoRyV01ceOQYOoE=
 
 node-releases@^1.1.70:
   version "1.1.71"
@@ -1008,12 +1008,12 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   integrity sha1-IfMz6ba46v8CRo9RRupAbTRfTa0=
 
 postcss@^8.2.1:
-  version "8.2.9"
-  resolved "https://registry.npm.taobao.org/postcss/download/postcss-8.2.9.tgz#fd95ff37b5cee55c409b3fdd237296ab4096fba3"
-  integrity sha1-/ZX/N7XO5VxAmz/dI3KWq0CW+6M=
+  version "8.2.15"
+  resolved "https://registry.nlark.com/postcss/download/postcss-8.2.15.tgz#9e66ccf07292817d226fc315cbbf9bc148fbca65"
+  integrity sha1-nmbM8HKSgX0ib8MVy7+bwUj7ymU=
   dependencies:
     colorette "^1.2.2"
-    nanoid "^3.1.22"
+    nanoid "^3.1.23"
     source-map "^0.6.1"
 
 prettier@^2.2.1:
@@ -1172,9 +1172,9 @@ resolve@^1.19.0:
     path-parse "^1.0.6"
 
 rollup@^2.38.5:
-  version "2.44.0"
-  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.44.0.tgz?cache=0&sync_timestamp=1617027548420&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frollup%2Fdownload%2Frollup-2.44.0.tgz#8da324d1c4fd12beef9ae6e12f4068265b6d95eb"
-  integrity sha1-jaMk0cT9Er7vmubhL0BoJlttles=
+  version "2.47.0"
+  resolved "https://registry.nlark.com/rollup/download/rollup-2.47.0.tgz#9d958aeb2c0f6a383cacc0401dff02b6e252664d"
+  integrity sha1-nZWK6ywPajg8rMBAHf8CtuJSZk0=
   optionalDependencies:
     fsevents "~2.3.1"
 
@@ -1326,12 +1326,12 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-vite@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.npm.taobao.org/vite/download/vite-2.1.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvite%2Fdownload%2Fvite-2.1.5.tgz#4857da441c62f7982c83cbd5f42a00330f20c9c1"
-  integrity sha1-SFfaRBxi95gsg8vV9CoAMw8gycE=
+vite@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.nlark.com/vite/download/vite-2.3.0.tgz?cache=0&sync_timestamp=1620841448286&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvite%2Fdownload%2Fvite-2.3.0.tgz#02b007c7aa4ac88cc18f854b9c68e4fbe76e3ef4"
+  integrity sha1-ArAHx6pKyIzBj4VLnGjk++duPvQ=
   dependencies:
-    esbuild "^0.9.3"
+    esbuild "^0.11.19"
     postcss "^8.2.1"
     resolve "^1.19.0"
     rollup "^2.38.5"

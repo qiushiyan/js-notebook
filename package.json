@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "lerna run start --parallel",
-    "lerna:publish": "lerna publish --registry=https://registry.npmjs.org --force-publish --no-push",
+    "lerna:publish": "lerna publish --registry=https://registry.npmjs.org --force-publish",
     "lerna:addBuild": "lerna add @jscript-notebook/local-client --scope=javascript-notebook"
   },
   "command": {
