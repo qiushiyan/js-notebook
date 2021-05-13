@@ -552,6 +552,11 @@ domutils@^2.4.2:
     domelementtype "^2.2.0"
     domhandler "^4.1.0"
 
+dynamic-import-polyfill@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.nlark.com/dynamic-import-polyfill/download/dynamic-import-polyfill-0.1.1.tgz#e1f9eb1876ee242bd56572f8ed4df768e143083f"
+  integrity sha1-4fnrGHbuJCvVZXL47U33aOFDCD8=
+
 electron-to-chromium@^1.3.649:
   version "1.3.709"
   resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.709.tgz?cache=0&sync_timestamp=1617747520068&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.709.tgz#d7be0b5686a2fdfe8bad898faa3a428d04d8f656"
@@ -567,7 +572,7 @@ esbuild-wasm@0.11.0:
   resolved "https://registry.npm.taobao.org/esbuild-wasm/download/esbuild-wasm-0.11.0.tgz#d1d0bf8aca88a8199ed57f123e856ecb238c8f4c"
   integrity sha1-0dC/isqIqBme1X8SPoVuyyOMj0w=
 
-esbuild@^0.11.19:
+esbuild@^0.11.20:
   version "0.11.20"
   resolved "https://registry.nlark.com/esbuild/download/esbuild-0.11.20.tgz#7cefa1aee8b372c184e42457885f7ce5d3e62a1e"
   integrity sha1-fO+hruizcsGE5CRXiF985dPmKh4=
@@ -1007,7 +1012,7 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   resolved "https://registry.npm.taobao.org/picomatch/download/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
   integrity sha1-IfMz6ba46v8CRo9RRupAbTRfTa0=
 
-postcss@^8.2.1:
+postcss@^8.2.10:
   version "8.2.15"
   resolved "https://registry.nlark.com/postcss/download/postcss-8.2.15.tgz#9e66ccf07292817d226fc315cbbf9bc148fbca65"
   integrity sha1-nmbM8HKSgX0ib8MVy7+bwUj7ymU=
@@ -1326,13 +1331,13 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-vite@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.nlark.com/vite/download/vite-2.3.0.tgz?cache=0&sync_timestamp=1620841448286&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvite%2Fdownload%2Fvite-2.3.0.tgz#02b007c7aa4ac88cc18f854b9c68e4fbe76e3ef4"
-  integrity sha1-ArAHx6pKyIzBj4VLnGjk++duPvQ=
+vite@^2.3.0:
+  version "2.3.2"
+  resolved "https://registry.nlark.com/vite/download/vite-2.3.2.tgz?cache=0&sync_timestamp=1620841448286&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvite%2Fdownload%2Fvite-2.3.2.tgz#cfac76b04d4dee1c7303b55f563b5b62d32f41fe"
+  integrity sha1-z6x2sE1N7hxzA7VfVjtbYtMvQf4=
   dependencies:
-    esbuild "^0.11.19"
-    postcss "^8.2.1"
+    esbuild "^0.11.20"
+    postcss "^8.2.10"
     resolve "^1.19.0"
     rollup "^2.38.5"
   optionalDependencies:

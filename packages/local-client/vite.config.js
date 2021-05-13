@@ -3,7 +3,18 @@ import reactRefresh from "@vitejs/plugin-react-refresh";
 import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [reactRefresh()],
+  plugins: [
+    reactRefresh(),
+    {
+      name: 'dynamic-import-polyfill',
+      renderDynamicImport() {
+        return {
+          left: '__import__(',
+          right: ', import.meta.url)'
+        }
+      }
+    }
+  ],
   define: {
     resolve: {
       alias: [
@@ -14,4 +25,12 @@ export default defineConfig({
       ],
     },
   },
-});
+  server: {
+    fsServe: {
+      strict: false
+    },
+    hmr: {
+      overlay: false
+    }
+  },
+})

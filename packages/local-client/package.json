@@ -39,5 +39,8 @@
     "vite": "^2.3.0"
   },
   "license": "MIT",
-  "gitHead": "03c0a809fc3245f27bff8fae0c7e7d56022891bf"
+  "gitHead": "03c0a809fc3245f27bff8fae0c7e7d56022891bf",
+  "dependencies": {
+    "dynamic-import-polyfill": "^0.1.1"
+  }
 }
